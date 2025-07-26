@@ -1,0 +1,127 @@
+@import 'tailwindcss';
+
+.burger-menu-line {
+  position: absolute;
+  display: flex;
+  height: 2px;
+  background-color: rgb(20, 20, 20);
+  border-radius: 2px;
+}
+
+.burger-menu-line:nth-child(1) {
+  top: 2px;
+  width: 100%;
+  transition: transform 0.2s ease-in;
+}
+
+.burger-menu-line:nth-child(2) {
+  top: calc(50% - 1.5px);
+  right: 0;
+  width: 100%;
+  transition: all 0.2s ease-in;
+}
+
+.burger-menu-line:nth-child(3) {
+  bottom: 2px;
+  width: 100%;
+  transition: transform 0.2s ease-in;
+}
+
+.open .burger-menu-line:nth-child(1) {
+  transform: rotate(-45deg) translateX(-5px) translateY(5px);
+}
+
+.open .burger-menu-line:nth-child(2) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.open .burger-menu-line:nth-child(3) {
+  transform: rotate(45deg) translateX(-5px) translateY(-5px);
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.animate-fill-both {
+  animation-fill-mode: both;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --animate-fade-delay-14: fade 0.1s ease-in 1.4s;
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  --animate-fade-up-1s: fadeUp-0-100 1s ease;
+  @keyframes fadeUp-0-100 {
+    0% {
+      opacity: 0;
+      transform: translateY(80px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  --animate-fade-up-2s: fadeUp-0-55-100 2s ease;
+  --animate-fade-up-2s-delay-03: fadeUp-0-55-100 2s ease 0.3s;
+  --animate-fade-up-2s-delay-06: fadeUp-0-55-100 2s ease 0.6s;
+  --animate-fade-up-2s-delay-09: fadeUp-0-55-100 2s ease 0.9s;
+  --animate-fade-up-2s-delay-12: fadeUp-0-55-100 2s ease 1.2s;
+  --animate-fade-up-2s-delay-15: fadeUp-0-55-100 2s ease 1.5s;
+  @keyframes fadeUp-0-55-100 {
+    0%,
+    55% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  --animate-fade-in-out: fadeInOut 1.5s linear;
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  --animate-extension-down: extensionDown 0.2s ease;
+  --animate-extension-down-delay-02: extensionDown 0.2s ease 0.2s;
+  @keyframes extensionDown {
+    0% {
+      visibility: hidden;
+      transform-origin: top;
+      transform: scaleY(0);
+    }
+    100% {
+      visibility: visible;
+      transform-origin: top;
+      transform: scaleY(1);
+    }
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}

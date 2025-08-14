@@ -1,5 +1,5 @@
 import './globals.css';
-import AppProvider from '@/shared/providers/AppProvider';
+import AppProvider from '@/providers/AppProvider';
 import Header from '@/components/header/Header';
 import FloatingImage from '@/components/transition/FloatingImage';
 

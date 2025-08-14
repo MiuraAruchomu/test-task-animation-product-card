@@ -1,4 +1,4 @@
-import { IProduct } from '@/features/products/products.interface';
+import { IProduct } from '@/slices/products/products.interface';
 import { NextResponse } from 'next/server';
 
 export async function GET() {

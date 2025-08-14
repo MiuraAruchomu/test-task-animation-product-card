@@ -1,5 +1,5 @@
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
-import { selectBurgermenuIsOpen } from '@/features/burgerMenu/selectors';
+import { selectBurgermenuIsOpen } from '@/slices/burgerMenu/selectors';
 
 export default function DropdownMenu() {
   const isOpen = useAppSelector(selectBurgermenuIsOpen);

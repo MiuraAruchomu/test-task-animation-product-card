@@ -1,9 +1,14 @@
-import { IProductCardProps } from '../product.interface';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { setStartTargetValue } from '@/features/transition/transitionSlice';
+import { setStartTargetValue } from '@/slices/transition/transitionSlice';
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import ProductImage from '../Image';
+
+export interface IProductCardProps {
+  id: string;
+  title: string;
+  price: number;
+}
 
 export default function ProductCard({ id, title, price }: IProductCardProps) {
   const [isVisible, setIsVisible] = useState(false);

@@ -6,8 +6,8 @@ import { useAppSelector } from '@/shared/hooks/useAppSelector';
 import {
   setStartTargetValue,
   setEndTargetValue,
-} from '@/features/transition/transitionSlice';
-import { selectProductInfo } from '@/features/products/selectors';
+} from '@/slices/transition/transitionSlice';
+import { selectProductInfo } from '@/slices/products/selectors';
 import { isValueStringOrUndefined } from './helpers';
 import { useEffect } from 'react';
 import ProductImage from './Image';

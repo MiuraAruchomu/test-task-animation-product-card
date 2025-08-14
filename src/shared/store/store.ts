@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import productsReducer from '@/features/products/productsSlice';
-import transitionReducer from '@/features/transition/transitionSlice';
-import burgerMenuReducer from '@/features/burgerMenu/burgerMenuSlice';
+import productsReducer from '@/slices/products/productsSlice';
+import transitionReducer from '@/slices/transition/transitionSlice';
+import burgerMenuReducer from '@/slices/burgerMenu/burgerMenuSlice';
 
 export const makeStore = () => {
   return configureStore({

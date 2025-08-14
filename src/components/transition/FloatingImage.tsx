@@ -7,11 +7,11 @@ import {
   selectTransitionStartTargetRect,
   selectTransitionTargetPath,
   selectTransitionEndTargetRect,
-} from '@/features/transition/selectors';
+} from '@/slices/transition/selectors';
 import {
   clearStartTargetValue,
   clearEndTargetValue,
-} from '@/features/transition/transitionSlice';
+} from '@/slices/transition/transitionSlice';
 import { useState, useRef, useEffect } from 'react';
 
 export default function FloatingImage() {

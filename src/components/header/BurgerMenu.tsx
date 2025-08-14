@@ -1,7 +1,7 @@
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
-import { setIsOpen } from '@/features/burgerMenu/burgerMenuSlice';
-import { selectBurgermenuIsOpen } from '@/features/burgerMenu/selectors';
+import { setIsOpen } from '@/slices/burgerMenu/burgerMenuSlice';
+import { selectBurgermenuIsOpen } from '@/slices/burgerMenu/selectors';
 
 export default function HeaderBurgerMenu() {
   const dispatch = useAppDispatch();

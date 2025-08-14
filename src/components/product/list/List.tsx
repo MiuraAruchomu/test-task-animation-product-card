@@ -2,12 +2,13 @@
 
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useAppSelector } from '@/shared/hooks/useAppSelector';
-import { setEndTargetValue } from '@/features/transition/transitionSlice';
-import { selectProducts } from '@/features/products/selectors';
+import { setEndTargetValue } from '@/slices/transition/transitionSlice';
+import { getProducts } from '@/slices/products/productsThunks';
+import { selectProducts } from '@/slices/products/selectors';
 import {
   selectTransitionType,
   selectTransitionTargetId,
-} from '@/features/transition/selectors';
+} from '@/slices/transition/selectors';
 import { addStylesToMovedCard, removeStylesToMovedCard } from '../helpers';
 import { useEffect } from 'react';
 import ProductCard from './Card';
@@ -18,6 +19,10 @@ export default function ProductList() {
   const products = useAppSelector(selectProducts);
   const transitionType = useAppSelector(selectTransitionType);
   const targetId = useAppSelector(selectTransitionTargetId);
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
 
   useEffect(() => {
     requestAnimationFrame(() => {

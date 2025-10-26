@@ -1,9 +1,3 @@
-export const isValueStringOrUndefined = (
-  value: unknown,
-): value is string | undefined => {
-  return typeof value === 'string' || value === undefined;
-};
-
 export const addStylesToMovedCard = ({
   img,
   wrapper,
@@ -15,8 +9,6 @@ export const addStylesToMovedCard = ({
   title: HTMLElement;
   price: HTMLElement;
 }) => {
-  console.log(title);
-
   img.classList.add('opacity-0', 'animate-fade-delay-14', 'animate-fill-both');
   wrapper.classList.add(
     'opacity-0',

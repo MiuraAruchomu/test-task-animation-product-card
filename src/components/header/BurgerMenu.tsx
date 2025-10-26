@@ -1,5 +1,5 @@
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { useAppSelector } from '@/shared/hooks/useAppSelector';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
+import { useAppSelector } from '@/hooks/useAppSelector';
 import { setIsOpen } from '@/slices/burgerMenu/burgerMenuSlice';
 import { selectBurgermenuIsOpen } from '@/slices/burgerMenu/selectors';
 

@@ -1,59 +1,14 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { useAppSelector } from '@/shared/hooks/useAppSelector';
-import {
-  setStartTargetValue,
-  setEndTargetValue,
-} from '@/slices/transition/transitionSlice';
-import { selectProductInfo } from '@/slices/products/selectors';
-import { isValueStringOrUndefined } from './helpers';
-import { useEffect } from 'react';
+import { useRef } from 'react';
 import ProductImage from './Image';
+import { useProductTransition } from '@/hooks/product/useProductTransition';
+import { useProduct } from '@/hooks/product/useProduct';
 
 export default function Product() {
-  const dispatch = useAppDispatch();
-  const params = useParams();
-  const router = useRouter();
-
-  const product =
-    params.id &&
-    !Array.isArray(params.id) &&
-    useAppSelector(selectProductInfo({ id: params.id }));
-
-  const handleClick = () => {
-    const img = document.getElementById('product-image');
-    if (!img) return;
-
-    const rect = img.getBoundingClientRect();
-    const { top, left, width, height } = rect;
-
-    dispatch(
-      setStartTargetValue({
-        type: 'from-product',
-        startTargetRect: { top, left, width, height },
-        targetPath: `/img/${params.id}.webp`,
-        targetId: isValueStringOrUndefined(params.id) ? params.id : undefined,
-      }),
-    );
-
-    router.back();
-  };
-
-  useEffect(() => {
-    const img = document.getElementById('product-image');
-    if (!img) return;
-
-    const rect = img.getBoundingClientRect();
-    const { top, left, width, height } = rect;
-
-    dispatch(
-      setEndTargetValue({
-        endTargetRect: { top, left, width, height },
-      }),
-    );
-  }, []);
+  const { id, product } = useProduct();
+  const imgRef = useRef<HTMLImageElement>(null);
+  const { handleClick } = useProductTransition({ id, imgRef });
 
   return (
     <div className='mx-auto 2xl:mx-0 flex flex-col items-start w-[90%] 2xl:w-full'>
@@ -76,7 +31,7 @@ export default function Product() {
               Материалы:
               <br />
               {product &&
-                product.description.materials.split('/n').map((line, index) => (
+                product.description.materials.split('\n').map((line, index) => (
                   <span key={index}>
                     - {line} <br />
                   </span>
@@ -93,7 +48,8 @@ export default function Product() {
           </div>
         </div>
         <ProductImage
-          path={`/img/${params.id}.webp`}
+          ref={imgRef}
+          path={`/img/${id}.webp`}
           id={'product-image'}
           styles={'opacity-0 animate-fade-delay-14 animate-fill-both'}
         />

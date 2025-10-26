@@ -1,4 +1,4 @@
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
 import { setStartTargetValue } from '@/slices/transition/transitionSlice';
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';

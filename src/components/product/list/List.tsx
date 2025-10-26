@@ -1,7 +1,7 @@
 'use client';
 
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { useAppSelector } from '@/shared/hooks/useAppSelector';
+import { useAppDispatch } from '@/hooks/useAppDispatch';
+import { useAppSelector } from '@/hooks/useAppSelector';
 import { setEndTargetValue } from '@/slices/transition/transitionSlice';
 import { getProducts } from '@/slices/products/productsThunks';
 import { selectProducts } from '@/slices/products/selectors';

@@ -1,7 +1,7 @@
 import { RefObject } from 'react';
 
 export interface IProductImageProps {
-  ref: RefObject<HTMLImageElement | null>;
+  ref?: RefObject<HTMLImageElement | null>;
   path: string;
   id: string;
   styles?: string;

@@ -1,6 +1,6 @@
 'use client';
 
 import { useSelector } from 'react-redux';
-import { RootState } from '@/shared/store/store';
+import { RootState } from '@/store/store';
 
 export const useAppSelector = useSelector.withTypes<RootState>();

@@ -1,4 +1,4 @@
-import { RootState } from '@/shared/store/store';
+import { RootState } from '@/store/store';
 
 export const selectTransitionStartTargetRect = (state: RootState) =>
   state.transition.startTargetRect;
